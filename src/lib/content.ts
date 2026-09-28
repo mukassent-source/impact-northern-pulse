@@ -8,5 +8,9 @@ export async function getEntries(kind?: string) {
   if (kind) query = query.eq("kind", kind);
   const { data, error } = await query;
   if (error) throw error;
-  return (data ?? []) as Entry[];
+  return Promise.all(((data ?? []) as Entry[]).map(async entry => {
+    if (!entry.image_url) return entry;
+    const { data: signed } = await supabase.storage.from("portfolio-media").createSignedUrl(entry.image_url, 3600);
+    return { ...entry, image_url: signed?.signedUrl ?? "" };
+  }));
 }
