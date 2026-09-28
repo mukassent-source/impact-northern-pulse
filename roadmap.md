@@ -1,0 +1,4 @@
+- [x] Create secure content, messages, and administrator roles.
+- [ ] Build the public portfolio pages with honest placeholder content.
+- [ ] Build private sign-in and content management.
+- [ ] Check desktop and mobile presentation and working interactions.
