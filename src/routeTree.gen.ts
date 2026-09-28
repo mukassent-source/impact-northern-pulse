@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as ImpactRouteImport } from './routes/impact'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as LeadershipRouteImport } from './routes/leadership'
+import { Route as MediaDevelopmentRouteImport } from './routes/media-development'
+import { Route as PartnershipsRouteImport } from './routes/partnerships'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as YouthEmpowermentRouteImport } from './routes/youth-empowerment'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpactRoute = ImpactRouteImport.update({
+  id: '/impact',
+  path: '/impact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadershipRoute = LeadershipRouteImport.update({
+  id: '/leadership',
+  path: '/leadership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaDevelopmentRoute = MediaDevelopmentRouteImport.update({
+  id: '/media-development',
+  path: '/media-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnershipsRoute = PartnershipsRouteImport.update({
+  id: '/partnerships',
+  path: '/partnerships',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YouthEmpowermentRoute = YouthEmpowermentRouteImport.update({
+  id: '/youth-empowerment',
+  path: '/youth-empowerment',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/gallery': typeof GalleryRoute
+  '/impact': typeof ImpactRoute
+  '/insights': typeof InsightsRoute
+  '/leadership': typeof LeadershipRoute
+  '/media-development': typeof MediaDevelopmentRoute
+  '/partnerships': typeof PartnershipsRoute
+  '/projects': typeof ProjectsRoute
+  '/youth-empowerment': typeof YouthEmpowermentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/gallery': typeof GalleryRoute
+  '/impact': typeof ImpactRoute
+  '/insights': typeof InsightsRoute
+  '/leadership': typeof LeadershipRoute
+  '/media-development': typeof MediaDevelopmentRoute
+  '/partnerships': typeof PartnershipsRoute
+  '/projects': typeof ProjectsRoute
+  '/youth-empowerment': typeof YouthEmpowermentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/gallery': typeof GalleryRoute
+  '/impact': typeof ImpactRoute
+  '/insights': typeof InsightsRoute
+  '/leadership': typeof LeadershipRoute
+  '/media-development': typeof MediaDevelopmentRoute
+  '/partnerships': typeof PartnershipsRoute
+  '/projects': typeof ProjectsRoute
+  '/youth-empowerment': typeof YouthEmpowermentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/gallery'
+    | '/impact'
+    | '/insights'
+    | '/leadership'
+    | '/media-development'
+    | '/partnerships'
+    | '/projects'
+    | '/youth-empowerment'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/gallery'
+    | '/impact'
+    | '/insights'
+    | '/leadership'
+    | '/media-development'
+    | '/partnerships'
+    | '/projects'
+    | '/youth-empowerment'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/gallery'
+    | '/impact'
+    | '/insights'
+    | '/leadership'
+    | '/media-development'
+    | '/partnerships'
+    | '/projects'
+    | '/youth-empowerment'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  GalleryRoute: typeof GalleryRoute
+  ImpactRoute: typeof ImpactRoute
+  InsightsRoute: typeof InsightsRoute
+  LeadershipRoute: typeof LeadershipRoute
+  MediaDevelopmentRoute: typeof MediaDevelopmentRoute
+  PartnershipsRoute: typeof PartnershipsRoute
+  ProjectsRoute: typeof ProjectsRoute
+  YouthEmpowermentRoute: typeof YouthEmpowermentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impact': {
+      id: '/impact'
+      path: '/impact'
+      fullPath: '/impact'
+      preLoaderRoute: typeof ImpactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leadership': {
+      id: '/leadership'
+      path: '/leadership'
+      fullPath: '/leadership'
+      preLoaderRoute: typeof LeadershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media-development': {
+      id: '/media-development'
+      path: '/media-development'
+      fullPath: '/media-development'
+      preLoaderRoute: typeof MediaDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partnerships': {
+      id: '/partnerships'
+      path: '/partnerships'
+      fullPath: '/partnerships'
+      preLoaderRoute: typeof PartnershipsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/youth-empowerment': {
+      id: '/youth-empowerment'
+      path: '/youth-empowerment'
+      fullPath: '/youth-empowerment'
+      preLoaderRoute: typeof YouthEmpowermentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  GalleryRoute: GalleryRoute,
+  ImpactRoute: ImpactRoute,
+  InsightsRoute: InsightsRoute,
+  LeadershipRoute: LeadershipRoute,
+  MediaDevelopmentRoute: MediaDevelopmentRoute,
+  PartnershipsRoute: PartnershipsRoute,
+  ProjectsRoute: ProjectsRoute,
+  YouthEmpowermentRoute: YouthEmpowermentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
