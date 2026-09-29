@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { SectionTitle } from "@/components/site/layout";
 import { ProjectGrid } from "@/components/site/content-list";
 import { areas } from "@/lib/site-data";
+import { AboutPage, LeadershipPage, MediaPage, YouthPage, ProjectsPage, ImpactPage, InsightsPage, GalleryPage, PartnershipsPage } from "@/components/site/sections";
+import { ContactPage } from "@/components/site/contact-section";
 import heroImage from "@/assets/northern-ghana-community.jpg";
 import youthImage from "@/assets/ghana-youth-workshop.jpg";
 import mediaImage from "@/assets/ghana-media.jpg";
@@ -19,7 +21,7 @@ export const Route = createFileRoute("/")({
 });
 const icons = [Radio, Users, Globe2, Compass, Lightbulb, HeartHandshake];
 function Home() { return <main>
-  <section className="relative flex min-h-[680px] items-end overflow-hidden bg-dark text-dark-foreground md:min-h-[720px] md:items-center">
+  <section id="top" className="relative flex min-h-[680px] items-end overflow-hidden bg-dark text-dark-foreground md:min-h-[720px] md:items-center">
     <img src={heroImage} alt="Illustrative scene of a community conversation in Northern Ghana; not Samuel Ato Afful or a documented project" width={1600} height={1104} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-[60%_center]"/>
     <div className="image-shade absolute inset-0"/>
     <div className="section-wrap relative z-10 pb-24 pt-36 md:py-24"><div className="max-w-3xl"><p className="eyebrow flex items-center gap-3 text-gold"><span className="h-px w-7 bg-gold"/> Samuel Ato Afful · Northern Ghana</p><h1 className="editorial-heading mt-7 text-[clamp(3.4rem,6vw,6.5rem)]">Strategic Media.<br/>Empowered Youth.<br/><span className="text-gold">Stronger Communities.</span></h1><p className="mt-7 max-w-xl text-sm leading-7 text-dark-foreground/85 md:text-base">Samuel Ato Afful leads strategic media development and youth empowerment initiatives focused on creating opportunities, strengthening communication ecosystems and supporting sustainable community development across Northern Ghana.</p><div className="mt-9 flex flex-wrap gap-3"><Button asChild size="lg" className="h-12 rounded-sm px-7 font-bold"><Link to="/" hash="projects">Explore My Work <ArrowUpRight/></Link></Button><Button asChild size="lg" variant="outline" className="h-12 rounded-sm border-dark-foreground/50 bg-transparent px-7 text-dark-foreground hover:bg-dark-foreground hover:text-dark"><Link to="/" hash="contact">Let's Collaborate <ArrowRight/></Link></Button></div></div></div>
@@ -32,4 +34,5 @@ function Home() { return <main>
   <section className="py-20 md:py-28"><div className="section-wrap"><div className="flex flex-wrap items-end justify-between gap-6"><SectionTitle label="04 / Portfolio" title="Ideas in action." description="A space for verified projects and initiatives. Examples below are clearly marked until details are provided."/><Button asChild variant="link" className="mb-10 px-0 font-bold text-sage"><Link to="/" hash="projects">View all projects <ArrowUpRight/></Link></Button></div><ProjectGrid limit={4}/></div></section>
   <section className="bg-sage py-20 text-dark-foreground md:py-24"><div className="section-wrap grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end"><div><p className="eyebrow text-gold">The future is collaborative</p><h2 className="editorial-heading mt-5 max-w-4xl text-4xl md:text-6xl">“Young people are not only beneficiaries of development—they are partners in building the future.”</h2></div><Button asChild className="h-12 rounded-sm px-7"><Link to="/" hash="youth-empowerment">Explore youth empowerment <ArrowUpRight/></Link></Button></div></section>
   <section className="bg-background py-20 md:py-28"><div className="section-wrap flex flex-col items-start justify-between gap-8 border-b border-border pb-20 md:flex-row md:items-end"><div><p className="eyebrow text-sage">Let's make an impact together</p><h2 className="editorial-heading mt-5 max-w-3xl text-5xl md:text-6xl">Let's build something <em>meaningful.</em></h2></div><Button asChild size="lg" className="h-12 rounded-sm px-7"><Link to="/" hash="contact">Start a conversation <ArrowUpRight/></Link></Button></div></section>
+  {([["about",AboutPage],["leadership",LeadershipPage],["media-development",MediaPage],["youth-empowerment",YouthPage],["projects",ProjectsPage],["impact",ImpactPage],["insights",InsightsPage],["gallery",GalleryPage],["partnerships",PartnershipsPage],["contact",ContactPage]] as const).map(([id,Section])=><section key={id} id={id} className="scroll-mt-[74px]"><Section/></section>)}
 </main> }
