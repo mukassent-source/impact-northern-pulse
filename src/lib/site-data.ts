@@ -1,9 +1,9 @@
 export const navItems = [
-  { label: "Home", to: "/" }, { label: "About", to: "/about" },
-  { label: "Leadership", to: "/leadership" }, { label: "Media Development", to: "/media-development" },
-  { label: "Youth Empowerment", to: "/youth-empowerment" }, { label: "Projects", to: "/projects" },
-  { label: "Impact", to: "/impact" }, { label: "Insights", to: "/insights" },
-  { label: "Gallery", to: "/gallery" }, { label: "Contact", to: "/contact" },
+  { label: "Home", to: "/", hash: "top" }, { label: "About", to: "/", hash: "about" },
+  { label: "Leadership", to: "/", hash: "leadership" }, { label: "Media Development", to: "/", hash: "media-development" },
+  { label: "Youth Empowerment", to: "/", hash: "youth-empowerment" }, { label: "Projects", to: "/", hash: "projects" },
+  { label: "Impact", to: "/", hash: "impact" }, { label: "Insights", to: "/", hash: "insights" },
+  { label: "Gallery", to: "/", hash: "gallery" }, { label: "Contact", to: "/", hash: "contact" },
 ] as const;
 export const areas = [
   ["Strategic Media Development", "Developing media initiatives, communication strategies and platforms that improve information access and engagement."],
