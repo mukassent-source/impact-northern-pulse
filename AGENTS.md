@@ -9,6 +9,6 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Public portfolio is a single scrolling home page with hash-anchor navigation (user request); only project detail and admin stay separate routes.
+- Public homepage shows only the full-viewport hero (user request); every portfolio section is its own route (/about, /leadership, /media-development, /youth-empowerment, /projects, /impact, /insights, /gallery, /partnerships, /contact) with achievements rendered on /about; only project detail and admin stay additionally separate.
 - Store editable portfolio records in `content_entries` with a `kind` discriminator and separate `user_roles`; public records must be published and editing must be role-gated by database policies.
 - Keep contact submissions in a separate private table and validate submissions on both sides because visitors must not read each other's messages.
