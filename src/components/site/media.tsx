@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getEntries, type Entry } from "@/lib/content";
 
 export function mediaType(path = "") {
-  const p = path.toLowerCase().split("?")[0];
+  const p = path.toLowerCase().split("?")[0] ?? "";
   if (/\.(mp4|webm|mov|m4v|ogv)$/.test(p)) return "video";
   if (/\.(mp3|wav|m4a|aac|ogg|oga|flac)$/.test(p)) return "audio";
   return "image";
