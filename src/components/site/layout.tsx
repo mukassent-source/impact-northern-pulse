@@ -1,3 +1,5 @@
+import { useRouterState } from "@tanstack/react-router";
+import { usePageText } from "./media";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Menu, X, ArrowUpRight } from "lucide-react";
@@ -18,6 +20,6 @@ export function SiteHeader() {
 export function SiteFooter() {
   return <footer className="bg-dark py-10 text-dark-foreground"><div className="section-wrap flex flex-col items-center justify-between gap-4 md:flex-row"><p className="text-xs text-dark-foreground/60">© 2026 Samuel Ato Afful. All Rights Reserved.</p><Link to="/admin" className="text-xs text-dark-foreground/60 underline hover:text-gold">Owner sign in</Link></div></footer>;
 }
-export function PageIntro({ label, title, description }: {label:string;title:string;description:string}) { return <section className="bg-dark py-20 text-dark-foreground md:py-28"><div className="section-wrap"><p className="eyebrow text-gold">{label}</p><h2 className="editorial-heading mt-5 max-w-4xl text-5xl md:text-7xl">{title}</h2><p className="mt-7 max-w-2xl text-base leading-8 text-dark-foreground/70 md:text-lg">{description}</p></div></section>; }
+export function PageIntro({ label, title, description }: {label:string;title:string;description:string}) { const path=useRouterState({select:s=>s.location.pathname});const o=usePageText(path);if(o){title=o.title||title;description=o.body||description;label=o.location||label} return <section className="bg-dark py-20 text-dark-foreground md:py-28"><div className="section-wrap"><p className="eyebrow text-gold">{label}</p><h2 className="editorial-heading mt-5 max-w-4xl text-5xl md:text-7xl">{title}</h2><p className="mt-7 max-w-2xl text-base leading-8 text-dark-foreground/70 md:text-lg">{description}</p></div></section>; }
 export function SectionTitle({label,title,description}:{label:string;title:string;description?:string}) { return <div className="mb-10"><p className="eyebrow text-sage">{label}</p><h2 className="editorial-heading mt-4 max-w-3xl text-4xl md:text-5xl">{title}</h2>{description && <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">{description}</p>}</div>; }
 export function Placeholder({children}:{children:string}) {return <span className="text-muted-foreground italic">[{children}]</span>}
