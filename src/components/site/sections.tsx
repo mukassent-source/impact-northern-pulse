@@ -5,7 +5,7 @@ import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageIntro, SectionTitle, Placeholder } from "./layout";
 import { Entries, ProjectGrid } from "./content-list";
-import heroImage from "@/assets/northern-ghana-community.jpg";
+import aboutPortrait from "@/assets/samuel-about-portrait.jpg.asset.json";
 import youthImage from "@/assets/ghana-youth-workshop.jpg";
 import mediaImage from "@/assets/ghana-media.jpg";
 
