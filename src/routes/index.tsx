@@ -14,9 +14,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() { return <main>
-  <section id="top" className="relative flex min-h-[calc(100dvh-74px)] items-center overflow-hidden bg-dark text-dark-foreground">
+  <section id="top" className="relative flex min-h-[calc(100dvh-86px)] items-center overflow-hidden bg-dark text-dark-foreground">
     <img src={heroImage.url} alt="Samuel Ato Afful seated at his desk" width={1676} height={768} fetchPriority="high" className="absolute inset-0 h-full w-full object-contain object-center"/>
     <div className="image-shade absolute inset-0"/>
-    <div className="section-wrap relative z-10 pb-24 pt-36 md:py-24"><div className="max-w-3xl"><div className="mt-28 flex flex-wrap gap-3"><Button asChild size="lg" className="h-12 rounded-sm px-7 font-bold"><Link to="/projects">Explore My Work <ArrowUpRight/></Link></Button><Button asChild size="lg" variant="outline" className="h-12 rounded-sm border-dark-foreground/50 bg-transparent px-7 text-dark-foreground hover:bg-dark-foreground hover:text-dark"><Link to="/contact">Let's Collaborate <ArrowRight/></Link></Button></div></div></div>
+    <div className="section-wrap relative z-10 flex min-h-[calc(100dvh-86px)] items-end pb-12 md:pb-16"><div className="flex flex-wrap gap-3 border-l-2 border-gold pl-5 md:pl-7"><Button asChild size="lg" className="h-12 rounded-sm px-7 font-bold"><Link to="/projects">Explore My Work <ArrowUpRight/></Link></Button><Button asChild size="lg" variant="outline" className="h-12 rounded-sm border-dark-foreground/35 bg-dark/45 px-7 text-dark-foreground backdrop-blur-sm hover:bg-dark-foreground hover:text-dark"><Link to="/contact">Let's Collaborate <ArrowRight/></Link></Button></div></div>
   </section>
 </main>; }
