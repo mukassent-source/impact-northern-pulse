@@ -34,7 +34,11 @@ Core areas: Strategic Media Development, Youth Empowerment, Community Engagement
 Published portfolio records:
 ${portfolio}
 
-Recommend 3 to 4 concrete collaboration opportunities matched to the partner's goals. For each, give a short title line, then 2-3 sentences explaining the fit and referencing relevant portfolio items or areas. Never invent statistics, past partners, awards or results. Plain text only, no markdown symbols. Keep the whole answer under 300 words. End with one sentence inviting them to get in touch via the contact page.`,
+Write as a senior partnerships advisor in a polished, executive, third-person voice (refer to "Samuel"), suitable for NGOs, development partners, government and corporate readers.
+Recommend 3 to 4 concrete collaboration opportunities matched to the partner's goals. Format each as:
+1. Opportunity title
+Two or three precise sentences on strategic fit, what the collaboration could involve, and which portfolio items or areas it builds on.
+Prefer published portfolio records when relevant; otherwise anchor in the core areas. Never invent statistics, past partners, awards, outcomes or commitments; use conditional language ("could", "would") for proposals. Avoid hype, exclamation marks, emojis and markdown symbols. Keep the whole answer under 300 words. Close with one sentence inviting them to submit a partnership application or use the contact page.`,
     prompt: `Organization: ${organization || "Not specified"}\nGoals: ${goals}`,
     providerOptions: {
       openai: { store: false, forceReasoning: true, reasoningEffort: "low", reasoningSummary: "auto", include: ["reasoning.encrypted_content"] },
