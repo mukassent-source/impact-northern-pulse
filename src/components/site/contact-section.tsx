@@ -1,9 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, MapPin, Mail, Phone } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { ArrowRight, Facebook, Globe, Instagram, Linkedin, MapPin, Mail, Phone, Twitter, Youtube, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageIntro, SectionTitle, Placeholder } from "@/components/site/layout";
 import { contactSchema, sendContact } from "@/lib/contact.functions";
+import { getEntries } from "@/lib/content";
+
+const socialIcons: Record<string, LucideIcon> = { linkedin: Linkedin, facebook: Facebook, x: Twitter, twitter: Twitter, instagram: Instagram, youtube: Youtube };
 export function ContactPage(){
  const [status,setStatus] = useState(""); const [busy,setBusy]=useState(false);
  async function submit(e:React.FormEvent<HTMLFormElement>){e.preventDefault();setStatus("");const form=e.currentTarget;const values=Object.fromEntries(new FormData(form).entries());const parsed=contactSchema.safeParse(values);if(!parsed.success){setStatus("Please check your details and complete the required fields.");return}setBusy(true);try{await sendContact({data:parsed.data});form.reset();setStatus("Thank you. Your message has been received.")}catch{setStatus("Your message could not be sent right now. Please try again later.")}finally{setBusy(false)}}
