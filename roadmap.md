@@ -1,4 +1,5 @@
-- [x] Create secure content, messages, and administrator roles.
-- [ ] Build the public portfolio pages with honest placeholder content.
-- [ ] Build private sign-in and content management.
-- [ ] Check desktop and mobile presentation and working interactions.
+- [x] Partnership application form
+- [x] Refine AI partnership finder tone
+- [ ] Partnership email to owner (blocked: email domain setup)
+- [ ] Owner admin account login
+- [ ] Social media handles on contact page (blocked: real handles)
