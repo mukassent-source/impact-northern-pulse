@@ -11,7 +11,7 @@ export function PartnerApplication() {
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault(); setStatus("");
     const form = e.currentTarget;
-    const v = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+    const v = Object.fromEntries(new FormData(form).entries()) as { name?: string; email?: string; phone?: string; organization?: string; website?: string; type?: string; goals?: string; proposal?: string };
     const message = [`Partnership type: ${v.type || "Not specified"}`, `Website: ${v.website || "Not provided"}`, "", "Goals:", v.goals ?? "", "", "Proposed collaboration:", v.proposal || "Not provided"].join("\n");
     const parsed = contactSchema.safeParse({ name: v.name, email: v.email, phone: v.phone ?? "", organization: v.organization ?? "", subject: `Partnership application${v.organization ? ` — ${v.organization}` : ""}`.slice(0, 160), message });
     if (!parsed.success || !v.organization || (v.goals ?? "").trim().length < 20) { setStatus("Please complete the required fields (goals: at least 20 characters)."); return; }
