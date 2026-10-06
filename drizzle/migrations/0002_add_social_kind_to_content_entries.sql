@@ -1,0 +1,2 @@
+ALTER TABLE public.content_entries DROP CONSTRAINT content_entries_kind_check;
+ALTER TABLE public.content_entries ADD CONSTRAINT content_entries_kind_check CHECK (kind = ANY (ARRAY['profile'::text, 'project'::text, 'article'::text, 'event'::text, 'gallery'::text, 'testimonial'::text, 'partner'::text, 'impact'::text, 'achievement'::text, 'quote'::text, 'page'::text, 'social'::text]));
