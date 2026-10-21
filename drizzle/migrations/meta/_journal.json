@@ -22,6 +22,13 @@
       "when": 1791296193395,
       "tag": "0002_add_social_kind_to_content_entries",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1792597137914,
+      "tag": "0003_admin_manage_user_roles",
+      "breakpoints": true
     }
   ]
 }

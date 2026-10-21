@@ -15,3 +15,4 @@
 - Use the supplied logo asset as the primary public brand mark; keep the public visual system token-based so its executive identity remains consistent.
 - Keep admin navigation and the overview in dedicated components; derive dashboard counts from the same role-protected records used by the editors so overview and editing stay consistent.
 - Resolve contact social icons through the shared content query and published-social selector; omit drafts and unsafe URLs so admin changes and public navigation stay consistent.
+- Admin user management (register accounts, assign roles, remove users) lives in `src/lib/users.functions.ts`; every function verifies the caller's admin role through the authenticated client before loading the service-role client inside the handler, and self-demotion/self-deletion is blocked.
