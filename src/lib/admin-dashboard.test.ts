@@ -1,3 +1,4 @@
+/// <reference types="bun" />
 import { describe, expect, test } from "bun:test";
 import { partnershipApplications, upcomingEvents } from "./admin-dashboard";
 import type { Entry } from "./content";
