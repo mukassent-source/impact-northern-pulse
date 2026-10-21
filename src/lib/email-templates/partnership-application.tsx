@@ -34,7 +34,7 @@ const Email = ({ name, email, phone, organization, message }: Props) => (
 
 export const template = {
   component: Email,
-  subject: (d: Record<string, any>) => `New partnership application${d.organization ? ` — ${d.organization}` : ''}`,
+  subject: (d: Record<string, any>) => `New partnership application${d['organization'] ? ` — ${d['organization']}` : ''}`,
   displayName: 'Partnership application (to owner)',
   to: 'sammyafful@gmail.com',
   previewData: { name: 'Jane Doe', email: 'jane@example.org', phone: '', organization: 'Example Foundation', message: 'Partnership type: Youth development\n\nGoals:\nTrain young journalists.' },
