@@ -20,6 +20,7 @@ import { Route as LeadershipRouteImport } from './routes/leadership'
 import { Route as MediaDevelopmentRouteImport } from './routes/media-development'
 import { Route as PartnershipsRouteImport } from './routes/partnerships'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as YouthEmpowermentRouteImport } from './routes/youth-empowerment'
 import { Route as ProjectsIdRouteImport } from './routes/projects.$id'
 
@@ -78,6 +79,11 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const YouthEmpowermentRoute = YouthEmpowermentRouteImport.update({
   id: '/youth-empowerment',
   path: '/youth-empowerment',
@@ -101,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/media-development': typeof MediaDevelopmentRoute
   '/partnerships': typeof PartnershipsRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/youth-empowerment': typeof YouthEmpowermentRoute
   '/projects/$id': typeof ProjectsIdRoute
 }
@@ -116,6 +123,7 @@ export interface FileRoutesByTo {
   '/media-development': typeof MediaDevelopmentRoute
   '/partnerships': typeof PartnershipsRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/youth-empowerment': typeof YouthEmpowermentRoute
   '/projects/$id': typeof ProjectsIdRoute
 }
@@ -132,6 +140,7 @@ export interface FileRoutesById {
   '/media-development': typeof MediaDevelopmentRoute
   '/partnerships': typeof PartnershipsRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/youth-empowerment': typeof YouthEmpowermentRoute
   '/projects/$id': typeof ProjectsIdRoute
 }
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
     | '/media-development'
     | '/partnerships'
     | '/projects'
+    | '/sitemap.xml'
     | '/youth-empowerment'
     | '/projects/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -164,6 +174,7 @@ export interface FileRouteTypes {
     | '/media-development'
     | '/partnerships'
     | '/projects'
+    | '/sitemap.xml'
     | '/youth-empowerment'
     | '/projects/$id'
   id:
@@ -179,6 +190,7 @@ export interface FileRouteTypes {
     | '/media-development'
     | '/partnerships'
     | '/projects'
+    | '/sitemap.xml'
     | '/youth-empowerment'
     | '/projects/$id'
   fileRoutesById: FileRoutesById
@@ -195,6 +207,7 @@ export interface RootRouteChildren {
   MediaDevelopmentRoute: typeof MediaDevelopmentRoute
   PartnershipsRoute: typeof PartnershipsRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   YouthEmpowermentRoute: typeof YouthEmpowermentRoute
 }
 
@@ -277,6 +290,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/youth-empowerment': {
       id: '/youth-empowerment'
       path: '/youth-empowerment'
@@ -318,6 +338,7 @@ const rootRouteChildren: RootRouteChildren = {
   MediaDevelopmentRoute: MediaDevelopmentRoute,
   PartnershipsRoute: PartnershipsRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   YouthEmpowermentRoute: YouthEmpowermentRoute,
 }
 export const routeTree = rootRouteImport

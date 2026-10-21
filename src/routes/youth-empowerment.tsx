@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { YouthPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/youth-empowerment")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Youth Empowerment | Samuel Ato Afful" },
     { name: "description", content: "Investing in the next generation — youth leadership, skills development, mentorship and digital literacy across Northern Ghana." },

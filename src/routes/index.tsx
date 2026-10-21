@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/samuel-ato-afful-hero.png.asset.json";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Samuel Ato Afful | Strategic Media Development & Youth Empowerment" },
     { name: "description", content: "Samuel Ato Afful leads strategic media development and youth empowerment initiatives focused on strengthening communities and creating opportunities across Northern Ghana." },

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AchievementsPage, AboutPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/about")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "About Samuel Ato Afful | Strategic Media Development & Youth Empowerment" },
     { name: "description", content: "Learn about Samuel Ato Afful's professional focus on strategic media development, youth empowerment and community engagement across Northern Ghana." },

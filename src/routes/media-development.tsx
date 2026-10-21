@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MediaPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/media-development")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Media Development | Samuel Ato Afful" },
     { name: "description", content: "Building stronger media ecosystems in Northern Ghana through media strategy, digital transformation and community media." },
