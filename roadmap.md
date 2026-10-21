@@ -1,6 +1,6 @@
 - [x] Partnership application form
 - [x] Refine AI partnership finder tone
-- [ ] Partnership email to owner (blocked: email domain setup)
+- [x] Partnership email to owner (sends once notify.atoafful.com DNS verifies)
 - [x] Existing admin session verified with dashboard creation and editing
 - [x] Display published social icons on contact and verify admin edits
 - [x] Admin dashboard overview and navigation
