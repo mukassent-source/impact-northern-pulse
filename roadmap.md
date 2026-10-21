@@ -1,6 +1,6 @@
 - [x] Partnership application form
 - [x] Refine AI partnership finder tone
 - [ ] Partnership email to owner (blocked: email domain setup)
-- [ ] Owner admin account login
+- [x] Existing admin session verified with dashboard creation and editing
 - [ ] Social media handles on contact page (deferred by user)
-- [ ] Admin dashboard overview and navigation
+- [x] Admin dashboard overview and navigation
