@@ -4,3 +4,5 @@
 - [x] Existing admin session verified with dashboard creation and editing
 - [x] Display published social icons on contact and verify admin edits
 - [x] Admin dashboard overview and navigation
+- [ ] Review SEO foundations and present findings
+- [ ] Disable public registration in authentication settings and verify admin account creation
