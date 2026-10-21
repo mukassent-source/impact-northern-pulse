@@ -7,3 +7,4 @@
 - [x] Review SEO foundations and present findings
 - [x] Disable public registration in authentication settings and verify admin account creation
 - [x] Add and verify approved public sitemap
+- [x] Fix blocking file-access finding and verify administrator-only account creation
