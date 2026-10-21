@@ -16,5 +16,16 @@ export const sendContact = createServerFn({ method: "POST" })
       body: JSON.stringify(data),
     });
     if (!response.ok) throw new Error("Message could not be sent. Please try again later.");
+    if (data.subject.startsWith("Partnership application")) {
+      try {
+        const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+        await sendTemplateEmail("partnership-application", "sammyafful@gmail.com", {
+          templateData: { name: data.name, email: data.email, phone: data.phone, organization: data.organization, message: data.message },
+          idempotencyKey: `partnership-application-${crypto.randomUUID()}`,
+        });
+      } catch (error) {
+        console.error("Partnership notification email failed", error);
+      }
+    }
     return { success: true };
   });
