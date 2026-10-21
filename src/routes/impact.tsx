@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ImpactPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/impact")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Impact | Samuel Ato Afful" },
     { name: "description", content: "Impact measured with integrity — verified figures and results from Samuel Ato Afful's initiatives will be published here." },

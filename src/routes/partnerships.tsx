@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PartnershipsPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/partnerships")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Collaboration & Partnerships | Samuel Ato Afful" },
     { name: "description", content: "Progress is a shared effort — collaboration opportunities with youth organizations, media, NGOs, institutions and development partners." },

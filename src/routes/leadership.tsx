@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LeadershipPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/leadership")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Leadership | Samuel Ato Afful" },
     { name: "description", content: "Leadership with purpose — principles of people-first, innovation, collaboration and sustainability guiding Samuel Ato Afful's work." },

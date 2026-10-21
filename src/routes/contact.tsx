@@ -3,6 +3,7 @@ import { ContactPage } from "@/components/site/contact-section";
 import { socialLinksQuery } from "@/lib/social-links-query";
 
 export const Route = createFileRoute("/contact")({
+  staticData: { sitemap: true },
   loader: ({ context }) => context.queryClient.ensureQueryData(socialLinksQuery),
   head: () => ({ meta: [
     { title: "Contact | Samuel Ato Afful" },

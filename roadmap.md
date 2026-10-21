@@ -6,3 +6,4 @@
 - [x] Admin dashboard overview and navigation
 - [x] Review SEO foundations and present findings
 - [x] Disable public registration in authentication settings and verify admin account creation
+- [ ] Add and verify approved public sitemap

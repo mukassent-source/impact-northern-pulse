@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { InsightsPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/insights")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Insights & Perspectives | Samuel Ato Afful" },
     { name: "description", content: "Perspectives on media, youth development, community, leadership and the ideas shaping Northern Ghana." },

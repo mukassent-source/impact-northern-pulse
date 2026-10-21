@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { GalleryPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/gallery")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Gallery | Samuel Ato Afful" },
     { name: "description", content: "A visual archive of verified programs, conversations and places across Northern Ghana." },
