@@ -11,6 +11,7 @@
 
 - Public homepage shows only the full-viewport hero (user request); every portfolio section is its own route (/about, /leadership, /media-development, /youth-empowerment, /projects, /impact, /insights, /gallery, /partnerships, /contact) with achievements rendered on /about; only project detail and admin stay additionally separate.
 - Store editable portfolio records in `content_entries` with a `kind` discriminator and separate `user_roles`; public records must be published and editing must be role-gated by database policies.
+- Keep portfolio storage private and direct reads admin-only; public media links are short-lived and signed only after anonymous RLS verifies the requested published record IDs, never caller-supplied storage paths.
 - Keep contact submissions in a separate private table and validate submissions on both sides because visitors must not read each other's messages.
 - Use the supplied logo asset as the primary public brand mark; keep the public visual system token-based so its executive identity remains consistent.
 - Keep admin navigation and the overview in dedicated components; derive dashboard counts from the same role-protected records used by the editors so overview and editing stay consistent.
