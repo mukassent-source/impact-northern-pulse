@@ -1,0 +1,2 @@
+DROP POLICY IF EXISTS "Published portfolio media readable" ON storage.objects;
+COMMENT ON POLICY "Admins view draft portfolio media" ON storage.objects IS 'Direct storage reads are admin-only. Public visitors receive short-lived links only after the application verifies a published content record through anonymous RLS.';

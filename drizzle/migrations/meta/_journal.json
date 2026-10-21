@@ -29,6 +29,13 @@
       "when": 1792597137914,
       "tag": "0003_admin_manage_user_roles",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1792599863567,
+      "tag": "0004_restrict_direct_portfolio_media_reads",
+      "breakpoints": true
     }
   ]
 }
