@@ -2,4 +2,5 @@
 - [x] Refine AI partnership finder tone
 - [ ] Partnership email to owner (blocked: email domain setup)
 - [ ] Owner admin account login
-- [ ] Social media handles on contact page (blocked: real handles)
+- [ ] Social media handles on contact page (deferred by user)
+- [ ] Admin dashboard overview and navigation
