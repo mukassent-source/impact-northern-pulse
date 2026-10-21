@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ContactPage } from "@/components/site/contact-section";
+import { socialLinksQuery } from "@/lib/social-links-query";
 
 export const Route = createFileRoute("/contact")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(socialLinksQuery),
   head: () => ({ meta: [
     { title: "Contact | Samuel Ato Afful" },
     { name: "description", content: "Get in touch about collaboration, youth development, media initiatives, speaking engagements or strategic partnerships." },

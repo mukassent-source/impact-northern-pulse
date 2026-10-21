@@ -1,13 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { ArrowRight, Facebook, Globe, Instagram, Linkedin, MapPin, Mail, Phone, Twitter, Youtube, type LucideIcon } from "lucide-react";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { ArrowRight, Facebook, Globe, Instagram, Linkedin, MapPin, Mail, Phone, Youtube, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageIntro, SectionTitle, Placeholder } from "@/components/site/layout";
 import { contactSchema, sendContact } from "@/lib/contact.functions";
-import { getEntries } from "@/lib/content";
+import { socialLinksQuery } from "@/lib/social-links-query";
 
-const socialIcons: Record<string, LucideIcon> = { linkedin: Linkedin, facebook: Facebook, x: Twitter, twitter: Twitter, instagram: Instagram, youtube: Youtube };
+const socialIcons: Record<string, LucideIcon> = { linkedin: Linkedin, facebook: Facebook, instagram: Instagram, youtube: Youtube };
+function SocialLinks() {
+ const { data: links } = useSuspenseQuery(socialLinksQuery);
+ if (!links.length) return null;
+ return <nav aria-label="Social profiles" className="mt-10 flex flex-wrap gap-3">{links.map(link => {
+  const Icon = socialIcons[link.network] ?? Globe;
+  return <Button key={link.id} asChild variant="outline" size="icon" className="h-11 w-11 rounded-sm"><a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name} title={link.name}>{link.network === "x" || link.network === "twitter" ? <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.5-8.6L.8 2h6.5l4.5 6.7L18.9 2Zm-1.1 18h1.7L6.4 3.9H4.6L17.8 20Z"/></svg> : <Icon aria-hidden="true"/>}</a></Button>;
+ })}</nav>;
+}
 export function ContactPage(){
  const [status,setStatus] = useState(""); const [busy,setBusy]=useState(false);
  async function submit(e:React.FormEvent<HTMLFormElement>){e.preventDefault();setStatus("");const form=e.currentTarget;const values=Object.fromEntries(new FormData(form).entries());const parsed=contactSchema.safeParse(values);if(!parsed.success){setStatus("Please check your details and complete the required fields.");return}setBusy(true);try{await sendContact({data:parsed.data});form.reset();setStatus("Thank you. Your message has been received.")}catch{setStatus("Your message could not be sent right now. Please try again later.")}finally{setBusy(false)}}

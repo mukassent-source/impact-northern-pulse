@@ -2,5 +2,5 @@
 - [x] Refine AI partnership finder tone
 - [ ] Partnership email to owner (blocked: email domain setup)
 - [x] Existing admin session verified with dashboard creation and editing
-- [ ] Social media handles on contact page (deferred by user)
+- [ ] Display published social icons on contact and verify admin edits
 - [x] Admin dashboard overview and navigation
