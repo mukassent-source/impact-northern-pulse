@@ -18,3 +18,4 @@
 - Resolve contact social icons through the shared content query and published-social selector; omit drafts and unsafe URLs so admin changes and public navigation stay consistent.
 - Admin user management (register accounts, assign roles, remove users) lives in `src/lib/users.functions.ts`; every function verifies the caller's admin role through the authenticated client before loading the service-role client inside the handler, and self-demotion/self-deletion is blocked.
 - Derive static sitemap URLs from required per-route staticData.sitemap decisions; exclude admin and placeholder project-detail pages so discovery stays aligned with public verified content.
+- Keep editable page and section keys in the shared page-editor registry; store overrides as page content entries and resolve published overrides consistently so admin editing and public rendering stay aligned.
