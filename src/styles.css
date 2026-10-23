@@ -67,6 +67,6 @@
 /* Hero banner: fill the screen on wide displays, stay fully visible on narrow ones
    (letterbox bands are filled by the blurred backdrop image in the hero). */
 .hero-media { object-fit: contain; object-position: center; }
-@media (min-aspect-ratio: 1.75/1) { .hero-media { object-fit: cover; object-position: 80% 50%; } }
+@media (min-aspect-ratio: 1.75/1) { .hero-media { object-fit: cover; object-position: 92% 50%; } }
 @media (max-width: 768px) { .image-shade { background: linear-gradient(0deg, oklch(0.08 0.004 80 / 88%), oklch(0.08 0.004 80 / 18%) 78%); } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
