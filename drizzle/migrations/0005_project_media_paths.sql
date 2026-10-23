@@ -1,0 +1,1 @@
+ALTER TABLE public.content_entries ADD COLUMN IF NOT EXISTS media_paths text[] NOT NULL DEFAULT '{}';
