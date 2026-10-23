@@ -43,6 +43,13 @@
       "when": 1792759309537,
       "tag": "0005_project_media_paths",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1792759487065,
+      "tag": "0006_contact_insert_validation",
+      "breakpoints": true
     }
   ]
 }
