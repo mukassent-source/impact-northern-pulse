@@ -22,19 +22,25 @@ export const getPublishedMediaUrls = createServerFn({ method: "POST" })
     // Authorize the exact record IDs with anonymous RLS before privileged signing.
     // No caller-provided storage path is ever passed to the signing client.
     const { data: entries, error } = await publicClient.from("content_entries")
-      .select("id,image_url,published").in("id", data.ids).eq("published", true);
+      .select("id,image_url,published,media_paths").in("id", data.ids).eq("published", true);
     if (error) throw new Error("Media is temporarily unavailable.");
     const eligible = (entries ?? []).filter(canSignPublishedMedia);
     if (!eligible.length) return {};
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const result: Record<string, string> = {};
-    await Promise.all(eligible.map(async entry => {
+    const jobs = eligible.flatMap(entry => [
+      { key: entry.id, path: entry.image_url },
+      ...(entry.media_paths ?? []).slice(0, 20)
+        .map((path, i) => ({ key: `${entry.id}:${i}`, path }))
+        .filter(job => canSignPublishedMedia({ published: true, image_url: job.path })),
+    ]);
+    await Promise.all(jobs.map(async job => {
       const { data: signed, error: signError } = await supabaseAdmin.storage
-        .from("portfolio-media").createSignedUrl(entry.image_url, PUBLIC_MEDIA_URL_SECONDS);
+        .from("portfolio-media").createSignedUrl(job.path, PUBLIC_MEDIA_URL_SECONDS);
       if (!signError && signed?.signedUrl) {
         const browserOrigin = process.env["VITE_SUPABASE_URL"];
         const url = new URL(signed.signedUrl);
-        result[entry.id] = browserOrigin ? `${browserOrigin}${url.pathname}${url.search}` : signed.signedUrl;
+        result[job.key] = browserOrigin ? `${browserOrigin}${url.pathname}${url.search}` : signed.signedUrl;
       }
     }));
     return result;
