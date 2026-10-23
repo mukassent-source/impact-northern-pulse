@@ -10,3 +10,4 @@
 - [x] Fix blocking file-access finding and verify administrator-only account creation
 - [ ] Add page-by-page admin editors and media uploads for all nine requested pages
 - [ ] Verify published page edits and uploads through the admin and public pages
+- [x] Remove the built-in gallery photos the owner selected
