@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getEntries, type Entry } from "@/lib/content";
+import { pageRecord } from "@/lib/page-editor";
 
 export function mediaType(path = "") {
   const p = path.toLowerCase().split("?")[0] ?? "";
@@ -18,5 +19,5 @@ export function Media({ entry, className = "w-full object-cover" }: { entry: Ent
 
 export function usePageText(key: string) {
   const { data = [] } = useQuery({ queryKey: ["content", "page"], queryFn: () => getEntries("page") });
-  return data.find((e) => e.category === key && e.published);
+  return pageRecord(data, key, true);
 }

@@ -16,7 +16,7 @@ export const adminSections = [
   { key: "testimonial", label: "Testimonials", icon: MessageSquare },
   { key: "impact", label: "Impact", icon: ChartNoAxesCombined },
   { key: "partner", label: "Partners", icon: Users },
-  { key: "page", label: "Page text", icon: FileText },
+  { key: "page", label: "Pages", icon: FileText },
   { key: "social", label: "Social links", icon: Globe },
   { key: "message", label: "Messages", icon: MessageSquare },
   { key: "users", label: "Users", icon: UserCog },
