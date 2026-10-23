@@ -59,6 +59,7 @@ export type Database = {
           image_url: string
           kind: string
           location: string
+          media_paths: string[]
           metric: string
           occurred_on: string | null
           published: boolean
@@ -73,6 +74,7 @@ export type Database = {
           image_url?: string
           kind: string
           location?: string
+          media_paths?: string[]
           metric?: string
           occurred_on?: string | null
           published?: boolean
@@ -87,6 +89,7 @@ export type Database = {
           image_url?: string
           kind?: string
           location?: string
+          media_paths?: string[]
           metric?: string
           occurred_on?: string | null
           published?: boolean

@@ -36,6 +36,13 @@
       "when": 1792599863567,
       "tag": "0004_restrict_direct_portfolio_media_reads",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1792759309537,
+      "tag": "0005_project_media_paths",
+      "breakpoints": true
     }
   ]
 }
