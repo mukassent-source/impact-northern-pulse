@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/samuel-ato-afful-hero.png.asset.json";
+import heroImage from "@/assets/samuel-ato-afful-hero-v2.png.asset.json";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
