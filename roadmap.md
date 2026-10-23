@@ -8,6 +8,6 @@
 - [x] Disable public registration in authentication settings and verify admin account creation
 - [x] Add and verify approved public sitemap
 - [x] Fix blocking file-access finding and verify administrator-only account creation
-- [ ] Add page-by-page admin editors and media uploads for all nine requested pages
-- [ ] Verify published page edits and uploads through the admin and public pages
+- [x] Add page-by-page admin editors and media uploads for all nine requested pages
+- [ ] Verify published page edits and uploads signed in as the owner (blocked: no preview sign-in session available)
 - [x] Remove the built-in gallery photos the owner selected
