@@ -2,11 +2,11 @@ export const navItems = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Leadership", to: "/leadership" },
-  { label: "Media Development", to: "/media-development" },
+  { label: "Perspective", to: "/media-development" },
   { label: "Youth Empowerment", to: "/youth-empowerment" },
   { label: "Projects", to: "/projects" },
   { label: "Impact", to: "/impact" },
-  { label: "Insights", to: "/insights" },
+  { label: "Journal", to: "/insights" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
 ] as const;

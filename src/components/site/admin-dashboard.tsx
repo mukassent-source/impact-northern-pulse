@@ -10,7 +10,7 @@ export const adminSections = [
   { key: "achievement", label: "Achievements", icon: Trophy },
   { key: "event", label: "Events", icon: CalendarDays },
   { key: "profile", label: "Profile", icon: UserRound },
-  { key: "article", label: "Insights", icon: Newspaper },
+  { key: "article", label: "Journal posts", icon: Newspaper },
   { key: "gallery", label: "Gallery", icon: Images },
   { key: "quote", label: "Quote cuts", icon: Quote },
   { key: "testimonial", label: "Testimonials", icon: MessageSquare },
