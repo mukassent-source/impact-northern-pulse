@@ -2,7 +2,10 @@ export const navItems = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Leadership", to: "/leadership" },
+  { label: "Events", to: "/events" },
   { label: "Perspectives", to: "/media-development" },
+
+
   { label: "Youth Empowerment", to: "/youth-empowerment" },
   { label: "Projects", to: "/projects" },
   { label: "Impact", to: "/impact" },
