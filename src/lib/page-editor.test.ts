@@ -10,6 +10,10 @@ describe("Page editing", () => {
       assert.equal(pageSections.some(section => section.key === path), true);
     });
   }
+  it("supports media uploads on the Perspective page", () => {
+    const page = editablePages.find(p => p.path === "/media-development");
+    assert.equal(page?.kinds.includes("perspective"), true);
+  });
   it("does not display a draft page override", () => {
     const entry = { id: "draft", kind: "page", category: "/contact#email", published: false, created_at: "2026-01-01" } as Entry;
     assert.equal(pageRecord([entry], "/contact#email", true), undefined);
