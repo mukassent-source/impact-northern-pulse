@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EventsRouteImport } from './routes/events'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ImpactRouteImport } from './routes/impact'
 import { Route as InsightsRouteImport } from './routes/insights'
@@ -43,6 +44,11 @@ const AdminRoute = AdminRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/impact': typeof ImpactRoute
   '/insights': typeof InsightsRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/impact': typeof ImpactRoute
   '/insights': typeof InsightsRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/impact': typeof ImpactRoute
   '/insights': typeof InsightsRoute
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/contact'
+    | '/events'
     | '/gallery'
     | '/impact'
     | '/insights'
@@ -178,6 +188,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/contact'
+    | '/events'
     | '/gallery'
     | '/impact'
     | '/insights'
@@ -195,6 +206,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/admin'
     | '/contact'
+    | '/events'
     | '/gallery'
     | '/impact'
     | '/insights'
@@ -213,6 +225,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRoute
   ContactRoute: typeof ContactRoute
+  EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
   ImpactRoute: typeof ImpactRoute
   InsightsRoute: typeof InsightsRoute
@@ -253,6 +266,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -352,6 +372,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdminRoute: AdminRoute,
   ContactRoute: ContactRoute,
+  EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,
   ImpactRoute: ImpactRoute,
   InsightsRoute: InsightsRoute,
