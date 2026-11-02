@@ -3,6 +3,8 @@ export const navItems = [
   { label: "About", to: "/about" },
   { label: "Leadership", to: "/leadership" },
   { label: "Events", to: "/events" },
+  { label: "Perspectives", to: "/media-development" },
+
 
   { label: "Youth Empowerment", to: "/youth-empowerment" },
   { label: "Projects", to: "/projects" },
