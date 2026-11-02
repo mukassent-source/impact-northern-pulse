@@ -57,6 +57,13 @@
       "when": 1793626759362,
       "tag": "0007_journal_comments",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1793627578313,
+      "tag": "0008_add_perspective_kind",
+      "breakpoints": true
     }
   ]
 }
