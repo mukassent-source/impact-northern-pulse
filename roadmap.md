@@ -11,3 +11,6 @@
 - [x] Add page-by-page admin editors and media uploads for all nine requested pages
 - [ ] Verify published page edits and uploads signed in as the owner (blocked: no preview sign-in session available)
 - [x] Remove the built-in gallery photos the owner selected
+- [x] Remove the "The approach" block from the Perspective page
+- [x] Admin picture/video posting on the Perspective page (verified end to end)
+- [x] Remove the media focus-areas cards from the Perspective page
