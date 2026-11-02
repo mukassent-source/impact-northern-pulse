@@ -3,7 +3,7 @@ import type { Entry } from "./content";
 export const editablePages = [
   { path: "/about", label: "About", sections: [["biography", "Biography"], ["journey", "Professional journey"], ["achievements", "Achievements heading"]], kinds: ["achievement"] },
   { path: "/leadership", label: "Leadership", sections: [["philosophy", "Leadership philosophy"], ["principles", "Leadership principles"], ["engagements", "Speaking engagements heading"]], kinds: ["event"] },
-  { path: "/media-development", label: "Perspective", sections: [["approach", "Media approach"], ["pillars", "Media focus areas"], ["process", "Connected process"]], kinds: [] },
+  { path: "/media-development", label: "Perspective", sections: [["approach", "Media approach"], ["pillars", "Media focus areas"], ["process", "Connected process"]], kinds: ["perspective"] },
   { path: "/youth-empowerment", label: "Youth Empowerment", sections: [["approach", "Youth approach and focus areas"], ["quote", "Youth quotation"], ["programs", "Programs and initiatives"]], kinds: [] },
   { path: "/projects", label: "Projects", sections: [], kinds: ["project"] },
   { path: "/impact", label: "Impact", sections: [["overview", "Impact overview and figures"]], kinds: ["impact"] },

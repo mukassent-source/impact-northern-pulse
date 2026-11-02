@@ -1,4 +1,4 @@
-import { ArrowUpRight, CalendarDays, FolderOpen, Handshake, Trophy, LayoutDashboard, UserRound, Newspaper, Images, MessageSquare, Quote, FileText, Globe, ChartNoAxesCombined, Users, UserCog } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Clapperboard, FolderOpen, Handshake, Trophy, LayoutDashboard, UserRound, Newspaper, Images, MessageSquare, Quote, FileText, Globe, ChartNoAxesCombined, Users, UserCog } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Entry } from "@/lib/content";
 import { partnershipApplications, upcomingEvents, type AdminMessage } from "@/lib/admin-dashboard";
@@ -9,6 +9,7 @@ export const adminSections = [
   { key: "project", label: "Projects", icon: FolderOpen },
   { key: "achievement", label: "Achievements", icon: Trophy },
   { key: "event", label: "Events", icon: CalendarDays },
+  { key: "perspective", label: "Perspective media", icon: Clapperboard },
   { key: "profile", label: "Profile", icon: UserRound },
   { key: "article", label: "Journal posts", icon: Newspaper },
   { key: "gallery", label: "Gallery", icon: Images },
