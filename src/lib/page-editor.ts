@@ -7,7 +7,7 @@ export const editablePages = [
   { path: "/youth-empowerment", label: "Youth Empowerment", sections: [["approach", "Youth approach and focus areas"], ["quote", "Youth quotation"], ["programs", "Programs and initiatives"]], kinds: [] },
   { path: "/projects", label: "Projects", sections: [], kinds: ["project"] },
   { path: "/impact", label: "Impact", sections: [["overview", "Impact overview and figures"]], kinds: ["impact"] },
-  { path: "/insights", label: "Journal", sections: [], kinds: ["article", "quote"] },
+  { path: "/insights", label: "Journal", sections: [], kinds: ["article"] },
   { path: "/gallery", label: "Gallery", sections: [], kinds: ["gallery"] },
   { path: "/contact", label: "Contact", sections: [["introduction", "Contact introduction"], ["location", "Location"], ["email", "Email address"], ["phone", "Phone number"]], kinds: ["social"] },
   { path: "/partnerships", label: "Partnerships", sections: [], kinds: ["partner", "testimonial"] },
