@@ -98,6 +98,38 @@ export type Database = {
         }
         Relationships: []
       }
+      journal_comments: {
+        Row: {
+          body: string
+          created_at: string
+          entry_id: string
+          id: string
+          name: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          entry_id: string
+          id?: string
+          name: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          entry_id?: string
+          id?: string
+          name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "journal_comments_entry_id_fkey"
+            columns: ["entry_id"]
+            isOneToOne: false
+            referencedRelation: "content_entries"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           created_at: string
