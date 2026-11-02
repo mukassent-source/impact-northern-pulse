@@ -13,6 +13,7 @@
 - Store editable portfolio records in `content_entries` with a `kind` discriminator and separate `user_roles`; public records must be published and editing must be role-gated by database policies.
 - Keep portfolio storage private and direct reads admin-only; public media links are short-lived and signed only after anonymous RLS verifies the requested published record IDs, never caller-supplied storage paths.
 - Keep contact submissions in a separate private table and validate submissions on both sides because visitors must not read each other's messages.
+- Send owner notifications synchronously after storing contact submissions, with template-fixed recipients, sender reply-to and submission-based idempotency; preserve saved messages when email fails.
 - Use the supplied logo asset as the primary public brand mark; keep the public visual system token-based so its executive identity remains consistent.
 - Keep admin navigation and the overview in dedicated components; derive dashboard counts from the same role-protected records used by the editors so overview and editing stay consistent.
 - Resolve contact social icons through the shared content query and published-social selector; omit drafts and unsafe URLs so admin changes and public navigation stay consistent.

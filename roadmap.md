@@ -14,3 +14,4 @@
 - [x] Remove the "The approach" block from the Perspective page
 - [x] Admin picture/video posting on the Perspective page (verified end to end)
 - [x] Remove the media focus-areas cards from the Perspective page
+- [x] Connect Contact Send message to the owner inbox and verify a saved submission plus email send.

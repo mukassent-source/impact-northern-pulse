@@ -11,21 +11,24 @@ export const sendContact = createServerFn({ method: "POST" })
     const base = process.env['SUPABASE_URL'];
     const key = process.env['SUPABASE_PUBLISHABLE_KEY'];
     if (!base || !key) throw new Error("Contact service unavailable");
+    const submissionId = crypto.randomUUID();
     const response = await fetch(`${base}/rest/v1/contact_messages`, {
       method: "POST", headers: { apikey: key, "Content-Type": "application/json", Prefer: "return=minimal" },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ ...data, id: submissionId }),
     });
     if (!response.ok) throw new Error("Message could not be sent. Please try again later.");
-    if (data.subject.startsWith("Partnership application")) {
-      try {
-        const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
-        await sendTemplateEmail("partnership-application", "sammyafful@gmail.com", {
-          templateData: { name: data.name, email: data.email, phone: data.phone, organization: data.organization, message: data.message },
-          idempotencyKey: `partnership-application-${crypto.randomUUID()}`,
-        });
-      } catch (error) {
-        console.error("Partnership notification email failed", error);
-      }
+    const templateName = data.subject.startsWith("Partnership application") ? "partnership-application" : "contact-message";
+    try {
+      const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+      const result = await sendTemplateEmail(templateName, "sammyafful@gmail.com", {
+        templateData: data,
+        idempotencyKey: `${templateName}-${submissionId}`,
+        replyTo: data.email,
+      });
+      return { success: true, emailed: result.sent };
+    } catch (error) {
+      // The saved message remains available even if notification delivery fails.
+      console.error("Owner notification email failed", error);
     }
-    return { success: true };
+    return { success: true, emailed: false };
   });
