@@ -18,7 +18,7 @@ export function ArticleEditor({ initialBody }: { initialBody: string }) {
     onUpdate: ({ editor }) => setBody(ARTICLE_DOCUMENT_PREFIX + JSON.stringify(editor.getJSON())),
   });
   useEditorState({ editor, selector: ({ editor }) => editor?.getJSON() });
-  const tools: { label: string; icon: LucideIcon; active?: boolean; disabled?: boolean; run: () => unknown }[] = [
+  const tools: { label: string; icon: LucideIcon; active?: boolean | undefined; disabled?: boolean | undefined; run: () => unknown }[] = [
     { label: "Bold", icon: Bold, active: editor?.isActive("bold"), run: () => editor?.chain().focus().toggleBold().run() },
     { label: "Italic", icon: Italic, active: editor?.isActive("italic"), run: () => editor?.chain().focus().toggleItalic().run() },
     { label: "Underline", icon: Underline, active: editor?.isActive("underline"), run: () => editor?.chain().focus().toggleUnderline().run() },
