@@ -4,7 +4,7 @@ import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
 import { Bold, Italic, Underline, Strikethrough, List, ListOrdered, Quote, AlignLeft, AlignCenter, AlignRight, Undo2, Redo2, Link, Unlink, RemoveFormatting, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ARTICLE_DOCUMENT_PREFIX, articleDocument, articleText, safeArticleLink } from "@/lib/article-document";
+import { ARTICLE_BODY_LIMIT, ARTICLE_DOCUMENT_PREFIX, articleDocument, articleText, isOverBodyLimit, safeArticleLink } from "@/lib/article-document";
 
 export function ArticleEditor({ initialBody }: { initialBody: string }) {
   const [body, setBody] = useState(initialBody);
@@ -41,6 +41,6 @@ export function ArticleEditor({ initialBody }: { initialBody: string }) {
     </div>
     {linkOpen && <div className="flex flex-wrap gap-2 border-b border-border p-2"><input aria-label="Link URL" type="url" value={url} onChange={event => setUrl(event.target.value)} placeholder="https://" className="h-9 min-w-0 flex-1 border border-input bg-background px-2 text-sm"/><Button type="button" size="sm" disabled={!safeArticleLink(url)} onClick={() => { const href = safeArticleLink(url); if (href) { editor?.chain().focus().extendMarkRange("link").setLink({ href }).run(); setLinkOpen(false); } }}>Apply link</Button></div>}
     <EditorContent editor={editor}/>
-    <div className="flex flex-wrap justify-between gap-2 border-t border-border px-3 py-2 text-xs text-muted-foreground"><span>{words} words</span><span>{body.length.toLocaleString()} / 20,000</span></div>
-  </div><input type="hidden" name="body" value={body}/>{body.length > 20000 && <p role="alert" className="mt-2 text-sm text-foreground">Article exceeds the saved content limit. Shorten it before saving.</p>}</div>;
+    <div className="flex flex-wrap justify-between gap-2 border-t border-border px-3 py-2 text-xs text-muted-foreground"><span>{words} words</span><span>{body.length.toLocaleString()} / {ARTICLE_BODY_LIMIT.toLocaleString()}</span></div>
+  </div><input type="hidden" name="body" value={body}/>{isOverBodyLimit(body) && <p role="alert" className="mt-2 text-sm text-foreground">Article exceeds the saved content limit. Shorten it before saving.</p>}</div>;
 }

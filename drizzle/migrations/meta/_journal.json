@@ -64,6 +64,13 @@
       "when": 1793627578313,
       "tag": "0008_add_perspective_kind",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1794330948392,
+      "tag": "0009_raise_content_body_limit",
+      "breakpoints": true
     }
   ]
 }

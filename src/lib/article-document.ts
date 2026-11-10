@@ -1,4 +1,6 @@
 export const ARTICLE_DOCUMENT_PREFIX = "article-document:v1:";
+export const ARTICLE_BODY_LIMIT = 50000;
+export function isOverBodyLimit(body: string): boolean { return body.length > ARTICLE_BODY_LIMIT; }
 export type ArticleNode = { type: string; text?: string; attrs?: Record<string, unknown>; marks?: { type: string; attrs?: Record<string, unknown> }[]; content?: ArticleNode[] };
 export function articleDocument(body: string): ArticleNode {
   if (body.startsWith(ARTICLE_DOCUMENT_PREFIX)) {
