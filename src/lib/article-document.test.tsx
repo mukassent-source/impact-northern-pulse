@@ -23,4 +23,9 @@ describe("formatted article content", () => {
     expect(html).not.toContain("javascript:");
     expect(html).toContain("&lt;script&gt;");
   });
+  it("allows saved articles up to 50,000 characters", () => {
+    expect(ARTICLE_BODY_LIMIT).toBe(50000);
+    expect(isOverBodyLimit("x".repeat(ARTICLE_BODY_LIMIT))).toBe(false);
+    expect(isOverBodyLimit("x".repeat(ARTICLE_BODY_LIMIT + 1))).toBe(true);
+  });
 });
