@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import { ArticleBody } from "@/components/site/article-body";
-import { ARTICLE_DOCUMENT_PREFIX, articleDocument, articleText, safeArticleLink } from "./article-document";
+import { ARTICLE_BODY_LIMIT, ARTICLE_DOCUMENT_PREFIX, articleDocument, articleText, isOverBodyLimit, safeArticleLink } from "./article-document";
 
 describe("formatted article content", () => {
   it("keeps existing plain text editable", () => {
