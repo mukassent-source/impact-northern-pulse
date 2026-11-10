@@ -16,4 +16,5 @@ export function articleText(body: string): string {
 export function safeArticleLink(value: unknown): string | undefined {
   if (typeof value !== "string") return;
   try { const url = new URL(value); if (["https:", "http:", "mailto:"].includes(url.protocol)) return url.href; } catch { /* Reject unsafe or incomplete links. */ }
+  return undefined;
 }
