@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useMatchRoute } from "@tanstack/react-router";
 import { ProjectsPage } from "@/components/site/sections";
 
 export const Route = createFileRoute("/projects")({
@@ -13,5 +13,6 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsRoute() {
-  return <main><ProjectsPage /></main>;
+  const matchRoute = useMatchRoute();
+  return <>{matchRoute({ to: "/projects", fuzzy: false }) && <main><ProjectsPage /></main>}<Outlet /></>;
 }
