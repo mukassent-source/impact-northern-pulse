@@ -21,3 +21,4 @@
 - Derive static sitemap URLs from required per-route staticData.sitemap decisions; exclude admin and placeholder project-detail pages so discovery stays aligned with public verified content.
 - Keep editable page and section keys in the shared page-editor registry; store overrides as page content entries and resolve published overrides consistently so admin editing and public rendering stay aligned.
 - Store formatted articles as version-prefixed editor JSON in the existing body field and render through a React node allowlist; this preserves legacy plain text and avoids executing stored HTML.
+- The projects parent route renders its listing only on an exact path match and always renders Outlet so project-detail navigation displays the selected record.
