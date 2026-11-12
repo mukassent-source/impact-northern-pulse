@@ -23,3 +23,5 @@
 - Store formatted articles as version-prefixed editor JSON in the existing body field and render through a React node allowlist; this preserves legacy plain text and avoids executing stored HTML.
 - The projects parent route renders its listing only on an exact path match and always renders Outlet so project-detail navigation displays the selected record.
 - Keep the My Books navigation destination on its own public route, excluded from the sitemap until real books are available, to avoid indexing an empty catalog.
+
+- Store books and purchase entitlements separately from public portfolio media; keep book files private and sign previews by published book ID, full PDFs only after admin or completed live-purchase validation.

@@ -71,6 +71,13 @@
       "when": 1794330948392,
       "tag": "0009_raise_content_body_limit",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1794518214234,
+      "tag": "0010_ebook_publishing_and_private_access",
+      "breakpoints": true
     }
   ]
 }

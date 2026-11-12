@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BookOpen } from "lucide-react";
+import { BookLibrary, booksQuery } from "@/components/site/book-library";
 import { PageIntro } from "@/components/site/layout";
 
 export const Route = createFileRoute("/my-books")({
   staticData: { sitemap: false },
+  loader: ({ context }) => context.queryClient.ensureQueryData(booksQuery),
   head: () => ({ meta: [
     { title: "My Books | Samuel Ato Afful" },
     { name: "description", content: "E-books by Samuel Ato Afful." },
@@ -19,10 +20,7 @@ function MyBooks() {
   return <main>
     <PageIntro label="Samuel Ato Afful" title="My Books" description="The e-book collection." />
     <section className="section-wrap py-20 md:py-28">
-      <div className="flex items-start gap-5 border-y border-border py-10">
-        <BookOpen className="h-8 w-8 shrink-0 text-sage" aria-hidden="true" />
-        <div><h2 className="text-xl font-semibold">No books published yet.</h2><p className="mt-2 text-sm text-muted-foreground">The collection is coming soon.</p></div>
-      </div>
+      <BookLibrary />
     </section>
   </main>;
 }

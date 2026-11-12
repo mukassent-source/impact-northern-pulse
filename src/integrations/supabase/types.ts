@@ -14,6 +14,86 @@ export type Database = {
   }
   public: {
     Tables: {
+      book_purchases: {
+        Row: {
+          book_id: string
+          created_at: string
+          environment: string
+          id: string
+          status: string
+          transaction_id: string
+          user_id: string
+        }
+        Insert: {
+          book_id: string
+          created_at?: string
+          environment?: string
+          id?: string
+          status?: string
+          transaction_id: string
+          user_id: string
+        }
+        Update: {
+          book_id?: string
+          created_at?: string
+          environment?: string
+          id?: string
+          status?: string
+          transaction_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "book_purchases_book_id_fkey"
+            columns: ["book_id"]
+            isOneToOne: false
+            referencedRelation: "books"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      books: {
+        Row: {
+          cover_path: string
+          created_at: string
+          currency: string
+          description: string
+          first_chapter_path: string
+          full_book_path: string
+          id: string
+          price_amount: number
+          published: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          cover_path?: string
+          created_at?: string
+          currency?: string
+          description?: string
+          first_chapter_path?: string
+          full_book_path?: string
+          id?: string
+          price_amount?: number
+          published?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          cover_path?: string
+          created_at?: string
+          currency?: string
+          description?: string
+          first_chapter_path?: string
+          full_book_path?: string
+          id?: string
+          price_amount?: number
+          published?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           created_at: string
