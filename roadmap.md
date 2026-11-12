@@ -17,4 +17,5 @@
 - [x] Connect Contact Send message to the owner inbox and verify a saved submission plus email send.
 - [x] Add Word-style article formatting and verify draft reopening and public display on desktop and mobile; temporary article removed.
 - [x] Enable built-in payments for e-book purchases.
-- [ ] Add My Books navigation and admin e-book publishing, free first chapters, and purchase-locked remaining chapters (waiting for the first book's title, price, currency, and chapter files).
+- [x] Add My Books to desktop and mobile navigation with its own page.
+- [ ] Add admin e-book publishing, free first chapters, and purchase-locked remaining chapters (waiting for the first book's title, price, currency, and chapter files).

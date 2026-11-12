@@ -10,6 +10,7 @@ export const navItems = [
   { label: "Projects", to: "/projects" },
   { label: "Impact", to: "/impact" },
   { label: "Journal", to: "/insights" },
+  { label: "My Books", to: "/my-books" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
 ] as const;
