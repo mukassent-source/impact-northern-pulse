@@ -33,7 +33,20 @@ export function Entries({kind}:{kind:"achievement"|"article"|"event"|"gallery"|"
   const {data=[],isLoading} = useQuery({queryKey:["content",kind],queryFn:()=>getEntries(kind)});
   if(isLoading) return <p className="text-muted-foreground">Loading...</p>;
   if(!data.length) return <div className="border-y border-border py-12 text-muted-foreground"><p className="text-lg">Verified {kind === "article" ? "journal posts" : kind === "gallery" ? "photographs" : kind === "perspective" ? "perspective media" : `${kind}s`} will appear here.</p><p className="mt-2 text-sm">[Add verified {kind === "perspective" ? "perspective media" : kind} details]</p></div>;
-  return <div className={kind==="gallery"?"columns-1 gap-5 sm:columns-2 lg:columns-3":kind==="event"?"grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-3":kind==="perspective"||kind==="article"?"grid grid-cols-1 items-start gap-6":"grid gap-5 md:grid-cols-2 lg:grid-cols-3"}>{data.map((item:Entry)=>kind==="event" ? <article key={item.id} className={`overflow-hidden border border-border bg-card ${expanded.has(item.id)?"md:col-span-2 lg:col-span-3":""}`}>
+  if (kind === "gallery") return <div className="grid grid-cols-1 items-start gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+    {data.map(item => <figure key={item.id} className="min-w-0">
+      <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-sm border border-border bg-secondary p-2">
+        <Media entry={item} className="h-full w-full object-contain"/>
+      </div>
+      {!!item.extra_media?.length && <div className="mt-2 grid grid-cols-3 gap-2">{item.extra_media.map(media => <Media key={media.path} entry={{...item, image_url:media.url, image_path:media.path}} className="aspect-square w-full rounded-sm bg-secondary object-contain"/>)}</div>}
+      <figcaption className="mt-4 border-l-2 border-primary pl-4">
+        {(item.category || item.occurred_on) && <p className="text-xs font-semibold text-muted-foreground">{[item.category, item.occurred_on].filter(Boolean).join(" · ")}</p>}
+        <h3 className="mt-1 break-words text-lg font-semibold leading-6">{item.title}</h3>
+        {item.body && <p className="mt-2 whitespace-pre-wrap break-words text-sm leading-6 text-muted-foreground">{item.body}</p>}
+      </figcaption>
+    </figure>)}
+  </div>;
+  return <div className={kind==="event"?"grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-3":kind==="perspective"||kind==="article"?"grid grid-cols-1 items-start gap-6":"grid gap-5 md:grid-cols-2 lg:grid-cols-3"}>{data.map((item:Entry)=>kind==="event" ? <article key={item.id} className={`overflow-hidden border border-border bg-card ${expanded.has(item.id)?"md:col-span-2 lg:col-span-3":""}`}>
     <Media entry={item} className={`w-full bg-secondary object-contain ${expanded.has(item.id)?"max-h-96":"aspect-[4/3]"}`}/>
     <div className="p-6"><p className="eyebrow text-sage">{item.category || "Events"}{item.occurred_on && ` · ${item.occurred_on}`}</p>
     <h3 className="mt-3"><Button variant="ghost" className="h-auto w-full justify-between gap-3 rounded-none p-0 text-left text-card-foreground hover:bg-transparent hover:text-foreground" aria-expanded={expanded.has(item.id)} aria-controls={`event-content-${item.id}`} onClick={()=>toggle(item.id)}>
