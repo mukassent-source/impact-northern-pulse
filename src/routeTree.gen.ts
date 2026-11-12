@@ -19,6 +19,7 @@ import { Route as ImpactRouteImport } from './routes/impact'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as LeadershipRouteImport } from './routes/leadership'
 import { Route as MediaDevelopmentRouteImport } from './routes/media-development'
+import { Route as MyBooksRouteImport } from './routes/my-books'
 import { Route as PartnershipsRouteImport } from './routes/partnerships'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -76,6 +77,11 @@ const MediaDevelopmentRoute = MediaDevelopmentRouteImport.update({
   path: '/media-development',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MyBooksRoute = MyBooksRouteImport.update({
+  id: '/my-books',
+  path: '/my-books',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PartnershipsRoute = PartnershipsRouteImport.update({
   id: '/partnerships',
   path: '/partnerships',
@@ -119,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/insights': typeof InsightsRoute
   '/leadership': typeof LeadershipRoute
   '/media-development': typeof MediaDevelopmentRoute
+  '/my-books': typeof MyBooksRoute
   '/partnerships': typeof PartnershipsRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -137,6 +144,7 @@ export interface FileRoutesByTo {
   '/insights': typeof InsightsRoute
   '/leadership': typeof LeadershipRoute
   '/media-development': typeof MediaDevelopmentRoute
+  '/my-books': typeof MyBooksRoute
   '/partnerships': typeof PartnershipsRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -156,6 +164,7 @@ export interface FileRoutesById {
   '/insights': typeof InsightsRoute
   '/leadership': typeof LeadershipRoute
   '/media-development': typeof MediaDevelopmentRoute
+  '/my-books': typeof MyBooksRoute
   '/partnerships': typeof PartnershipsRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -176,6 +185,7 @@ export interface FileRouteTypes {
     | '/insights'
     | '/leadership'
     | '/media-development'
+    | '/my-books'
     | '/partnerships'
     | '/projects'
     | '/sitemap.xml'
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
     | '/insights'
     | '/leadership'
     | '/media-development'
+    | '/my-books'
     | '/partnerships'
     | '/projects'
     | '/sitemap.xml'
@@ -212,6 +223,7 @@ export interface FileRouteTypes {
     | '/insights'
     | '/leadership'
     | '/media-development'
+    | '/my-books'
     | '/partnerships'
     | '/projects'
     | '/sitemap.xml'
@@ -231,6 +243,7 @@ export interface RootRouteChildren {
   InsightsRoute: typeof InsightsRoute
   LeadershipRoute: typeof LeadershipRoute
   MediaDevelopmentRoute: typeof MediaDevelopmentRoute
+  MyBooksRoute: typeof MyBooksRoute
   PartnershipsRoute: typeof PartnershipsRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -310,6 +323,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MediaDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/my-books': {
+      id: '/my-books'
+      path: '/my-books'
+      fullPath: '/my-books'
+      preLoaderRoute: typeof MyBooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/partnerships': {
       id: '/partnerships'
       path: '/partnerships'
@@ -378,6 +398,7 @@ const rootRouteChildren: RootRouteChildren = {
   InsightsRoute: InsightsRoute,
   LeadershipRoute: LeadershipRoute,
   MediaDevelopmentRoute: MediaDevelopmentRoute,
+  MyBooksRoute: MyBooksRoute,
   PartnershipsRoute: PartnershipsRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
