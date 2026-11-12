@@ -16,3 +16,4 @@
 - [x] Remove the media focus-areas cards from the Perspective page
 - [x] Connect Contact Send message to the owner inbox and verify a saved submission plus email send.
 - [x] Add Word-style article formatting and verify draft reopening and public display on desktop and mobile; temporary article removed.
+- [ ] Add My Books navigation and admin e-book publishing, free first chapters, and purchase-locked remaining chapters (waiting for payment setup confirmation).
