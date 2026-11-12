@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Pencil, Plus, Trash2, X } from "lucide-react";
+import { ImagePlus, Pencil, Plus, Trash2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
@@ -8,6 +8,54 @@ import { saveBook } from "@/lib/books.functions";
 import { BOOK_FILE_LIMIT, bookPrice } from "@/lib/books";
 
 type Book = Tables<"books">;
+function CoverUpload({ currentPath, disabled }: { currentPath: string | undefined; disabled: boolean }) {
+  const input = useRef<HTMLInputElement>(null);
+  const [file, setFile] = useState<File | null>(null);
+  const [preview, setPreview] = useState("");
+  const [error, setError] = useState("");
+  useEffect(() => {
+    let active = true;
+    if (file) {
+      const url = URL.createObjectURL(file);
+      setPreview(url);
+      return () => { active = false; URL.revokeObjectURL(url); };
+    }
+    setPreview("");
+    if (currentPath) {
+      void supabase.storage.from("book-files").createSignedUrl(currentPath, 600).then(({ data, error }) => {
+        if (!active) return;
+        if (error) setError("Could not load the current cover.");
+        else setPreview(data?.signedUrl ?? "");
+      });
+    }
+    return () => { active = false; };
+  }, [file, currentPath]);
+  return <div className="min-w-0 sm:col-span-2">
+    <p className="text-sm font-semibold">Cover page</p>
+    <div className="mt-3 flex flex-wrap items-center gap-5">
+      <div className="flex aspect-[2/3] w-28 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-background">
+        {preview ? <img src={preview} alt="Book cover preview" className="h-full w-full object-contain"/> : <ImagePlus className="size-8 text-muted-foreground" aria-hidden="true"/>}
+      </div>
+      <div className="min-w-0 flex-1">
+        <input ref={input} name="cover_path" type="file" accept="image/jpeg,image/png,image/webp" aria-label="Cover page image" className="hidden" disabled={disabled} onChange={event => {
+          const selected = event.target.files?.[0];
+          setError("");
+          if (!selected) { setFile(null); return; }
+          if (!["image/jpeg", "image/png", "image/webp"].includes(selected.type) || selected.size > BOOK_FILE_LIMIT) {
+            setError("Choose a JPG, PNG or WebP image under 100 MB.");
+            event.target.value = "";
+            setFile(null);
+            return;
+          }
+          setFile(selected);
+        }}/>
+        <Button type="button" disabled={disabled} onClick={() => input.current?.click()}><ImagePlus/>{file || currentPath ? "Replace cover page" : "Upload cover page"}</Button>
+        <p className="mt-2 break-all text-xs text-muted-foreground">{file?.name ?? currentPath?.split("/").pop() ?? "JPG, PNG or WebP · up to 100 MB"}</p>
+        {error && <p role="alert" className="mt-2 text-sm text-destructive">{error}</p>}
+      </div>
+    </div>
+  </div>;
+}
 export function BookManager() {
   const qc = useQueryClient();
   const [editing, setEditing] = useState<Partial<Book> | null>(null);
@@ -64,7 +112,8 @@ export function BookManager() {
         <label className="text-sm font-semibold sm:col-span-2">Description<textarea name="description" defaultValue={editing.description} maxLength={5000} rows={4} className="mt-2 w-full border border-input bg-background p-3"/></label>
         <label className="text-sm font-semibold">Price<input name="price" type="number" min="0.70" step="0.01" defaultValue={editing.price_amount ? editing.price_amount / 100 : undefined} required className="mt-2 h-11 w-full border border-input bg-background px-3"/></label>
         <label className="text-sm font-semibold">Currency<select name="currency" defaultValue={editing.currency ?? "USD"} className="mt-2 h-11 w-full border border-input bg-background px-3"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option></select></label>
-        {([ ["Cover image", "cover_path"], ["Free first chapter (PDF)", "first_chapter_path"], ["Full e-book — locked (PDF)", "full_book_path"] ] as const).map(([label, field]) => <label key={field} className="min-w-0 text-sm font-semibold sm:col-span-2">{label}<input name={field} type="file" accept={field === "cover_path" ? "image/jpeg,image/png,image/webp" : ".pdf,application/pdf"} className="mt-2 block w-full text-xs"/>{editing[field] && <span className="mt-2 block break-all text-xs font-normal text-muted-foreground">Current file: {editing[field]?.split("/").pop()}</span>}</label>)}
+        <CoverUpload currentPath={editing.cover_path} disabled={busy}/>
+        {([ ["Free first chapter (PDF)", "first_chapter_path"], ["Full e-book — locked (PDF)", "full_book_path"] ] as const).map(([label, field]) => <label key={field} className="min-w-0 text-sm font-semibold sm:col-span-2">{label}<input name={field} type="file" accept=".pdf,application/pdf" className="mt-2 block w-full text-xs"/>{editing[field] && <span className="mt-2 block break-all text-xs font-normal text-muted-foreground">Current file: {editing[field]?.split("/").pop()}</span>}</label>)}
         <div className="flex flex-wrap justify-end gap-2 sm:col-span-2"><Button type="submit" value="draft" variant="outline" disabled={busy}>Save draft</Button><Button type="submit" value="publish" disabled={busy}>{busy ? "Saving…" : "Publish book"}</Button></div>
       </form><p role="status" className="mt-4 text-sm text-muted-foreground">{notice}</p>
     </div></div>}
