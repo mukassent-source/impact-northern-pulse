@@ -4,7 +4,7 @@ import { editablePages, pageSections, pageRecord } from "./page-editor";
 import type { Entry } from "./content";
 
 describe("Page editing", () => {
-  for (const path of ["/about", "/leadership", "/media-development", "/youth-empowerment", "/projects", "/impact", "/insights", "/gallery", "/contact"]) {
+  for (const path of ["/about", "/leadership", "/media-development", "/projects", "/insights", "/gallery", "/contact"]) {
     it(`supports uploads and updates on ${path}`, () => {
       assert.equal(editablePages.some(page => page.path === path), true);
       assert.equal(pageSections.some(section => section.key === path), true);

@@ -6,9 +6,7 @@ export const navItems = [
   { label: "Perspectives", to: "/media-development" },
 
 
-  { label: "Youth Empowerment", to: "/youth-empowerment" },
   { label: "Projects", to: "/projects" },
-  { label: "Impact", to: "/impact" },
   { label: "Journal", to: "/insights" },
   { label: "My Books", to: "/my-books" },
   { label: "Gallery", to: "/gallery" },

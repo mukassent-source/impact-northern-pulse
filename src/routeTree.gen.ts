@@ -15,7 +15,6 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as ImpactRouteImport } from './routes/impact'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as LeadershipRouteImport } from './routes/leadership'
 import { Route as MediaDevelopmentRouteImport } from './routes/media-development'
@@ -23,7 +22,6 @@ import { Route as MyBooksRouteImport } from './routes/my-books'
 import { Route as PartnershipsRouteImport } from './routes/partnerships'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as YouthEmpowermentRouteImport } from './routes/youth-empowerment'
 import { Route as ProjectsIdRouteImport } from './routes/projects.$id'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -55,11 +53,6 @@ const EventsRoute = EventsRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImpactRoute = ImpactRouteImport.update({
-  id: '/impact',
-  path: '/impact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsRoute = InsightsRouteImport.update({
@@ -97,11 +90,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const YouthEmpowermentRoute = YouthEmpowermentRouteImport.update({
-  id: '/youth-empowerment',
-  path: '/youth-empowerment',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProjectsIdRoute = ProjectsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -121,7 +109,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
-  '/impact': typeof ImpactRoute
   '/insights': typeof InsightsRoute
   '/leadership': typeof LeadershipRoute
   '/media-development': typeof MediaDevelopmentRoute
@@ -129,7 +116,6 @@ export interface FileRoutesByFullPath {
   '/partnerships': typeof PartnershipsRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/youth-empowerment': typeof YouthEmpowermentRoute
   '/projects/$id': typeof ProjectsIdRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -140,7 +126,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
-  '/impact': typeof ImpactRoute
   '/insights': typeof InsightsRoute
   '/leadership': typeof LeadershipRoute
   '/media-development': typeof MediaDevelopmentRoute
@@ -148,7 +133,6 @@ export interface FileRoutesByTo {
   '/partnerships': typeof PartnershipsRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/youth-empowerment': typeof YouthEmpowermentRoute
   '/projects/$id': typeof ProjectsIdRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -160,7 +144,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
-  '/impact': typeof ImpactRoute
   '/insights': typeof InsightsRoute
   '/leadership': typeof LeadershipRoute
   '/media-development': typeof MediaDevelopmentRoute
@@ -168,7 +151,6 @@ export interface FileRoutesById {
   '/partnerships': typeof PartnershipsRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/youth-empowerment': typeof YouthEmpowermentRoute
   '/projects/$id': typeof ProjectsIdRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -181,7 +163,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/events'
     | '/gallery'
-    | '/impact'
     | '/insights'
     | '/leadership'
     | '/media-development'
@@ -189,7 +170,6 @@ export interface FileRouteTypes {
     | '/partnerships'
     | '/projects'
     | '/sitemap.xml'
-    | '/youth-empowerment'
     | '/projects/$id'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
@@ -200,7 +180,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/events'
     | '/gallery'
-    | '/impact'
     | '/insights'
     | '/leadership'
     | '/media-development'
@@ -208,7 +187,6 @@ export interface FileRouteTypes {
     | '/partnerships'
     | '/projects'
     | '/sitemap.xml'
-    | '/youth-empowerment'
     | '/projects/$id'
     | '/lovable/email/transactional/preview'
   id:
@@ -219,7 +197,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/events'
     | '/gallery'
-    | '/impact'
     | '/insights'
     | '/leadership'
     | '/media-development'
@@ -227,7 +204,6 @@ export interface FileRouteTypes {
     | '/partnerships'
     | '/projects'
     | '/sitemap.xml'
-    | '/youth-empowerment'
     | '/projects/$id'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
@@ -239,7 +215,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
-  ImpactRoute: typeof ImpactRoute
   InsightsRoute: typeof InsightsRoute
   LeadershipRoute: typeof LeadershipRoute
   MediaDevelopmentRoute: typeof MediaDevelopmentRoute
@@ -247,7 +222,6 @@ export interface RootRouteChildren {
   PartnershipsRoute: typeof PartnershipsRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  YouthEmpowermentRoute: typeof YouthEmpowermentRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
@@ -293,13 +267,6 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/impact': {
-      id: '/impact'
-      path: '/impact'
-      fullPath: '/impact'
-      preLoaderRoute: typeof ImpactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/insights': {
@@ -351,13 +318,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/youth-empowerment': {
-      id: '/youth-empowerment'
-      path: '/youth-empowerment'
-      fullPath: '/youth-empowerment'
-      preLoaderRoute: typeof YouthEmpowermentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/projects/$id': {
       id: '/projects/$id'
       path: '/$id'
@@ -394,7 +354,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,
-  ImpactRoute: ImpactRoute,
   InsightsRoute: InsightsRoute,
   LeadershipRoute: LeadershipRoute,
   MediaDevelopmentRoute: MediaDevelopmentRoute,
@@ -402,7 +361,6 @@ const rootRouteChildren: RootRouteChildren = {
   PartnershipsRoute: PartnershipsRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  YouthEmpowermentRoute: YouthEmpowermentRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
