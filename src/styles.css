@@ -67,6 +67,10 @@
 /* Hero banner: fill the screen on wide displays, stay fully visible on narrow ones
    (letterbox bands are filled by the blurred backdrop image in the hero). */
 .hero-media { object-fit: contain; object-position: center; }
+/* Blurred backdrop behind the hero banner: dim on wide screens where the
+   banner covers it, brighter on phones where it frames the letterbox bands. */
+.hero-back { filter: blur(2rem) brightness(0.35) saturate(1.1); }
+@media (max-width: 768px) { .hero-back { filter: blur(2.5rem) brightness(0.8) saturate(1.25); } }
 .article-prose { overflow-wrap: anywhere; }
 .article-prose p { margin-bottom: 0.75rem; white-space: pre-wrap; }
 .article-prose h3, .article-prose h2 { font-size: 1.5rem; font-weight: 700; margin-block: 1rem 0.5rem; color: var(--foreground); }
