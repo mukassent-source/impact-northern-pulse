@@ -25,3 +25,4 @@
 - Keep the My Books navigation destination on its own public route, excluded from the sitemap until real books are available, to avoid indexing an empty catalog.
 
 - Store books and purchase entitlements separately from public portfolio media; keep book files private and sign previews by published book ID, full PDFs only after admin or completed live-purchase validation.
+- Use a picture source for the portrait phone hero below the desktop breakpoint; keep the original desktop artwork unchanged so embedded banner text stays readable on each format.
